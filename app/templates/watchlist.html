@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Watchlist - Local Trading Agent</title></head>
+<body>
+<h1>Watchlist</h1>
+<p><a href="/">Overview</a> | <a href="/portfolio">Portfolio</a></p>
+<table>
+<tr><th>Symbol</th><th>Quote</th><th>Freshness</th></tr>
+{% for symbol in symbols %}
+<tr><td>{{ symbol }}</td><td>{% if quotes[symbol] %}${{ "%.2f"|format(quotes[symbol].price) }}{% else %}Unavailable{% endif %}</td><td>{% if quotes[symbol] %}Retrieved {{ quotes[symbol].retrieved_at.isoformat() }}{% else %}Unavailable{% endif %}</td></tr>
+{% endfor %}
+</table>
+</body>
+</html>

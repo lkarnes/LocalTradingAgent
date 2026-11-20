@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Portfolio - Local Trading Agent</title></head>
+<body>
+<h1>Paper Portfolio</h1>
+<p><a href="/">Overview</a> | <a href="/watchlist">Watchlist</a></p>
+<p>Cash: ${{ "%.2f"|format(paper.cash) }}</p>
+<p>Market value: ${{ "%.2f"|format(market_value) }}</p>
+<p>Total value: ${{ "%.2f"|format(total_value) }}</p>
+<h2>Holdings</h2>
+<table>
+<tr><th>Symbol</th><th>Quantity</th><th>Average Cost</th><th>Latest Quote</th></tr>
+{% for symbol, position in paper.positions.items() %}
+<tr><td>{{ symbol }}</td><td>{{ position.quantity }}</td><td>${{ "%.2f"|format(position.average_cost) }}</td><td>{% if symbol in quotes %}${{ "%.2f"|format(quotes[symbol]) }}{% else %}Unavailable{% endif %}</td></tr>
+{% endfor %}
+</table>
+</body>
+</html>

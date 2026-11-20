@@ -1,0 +1,6 @@
+timezone: America/Los_Angeles
+operating_mode: research
+paper_trading: true
+live_trading_enabled: false
+require_manual_approval: true
+

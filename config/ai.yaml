@@ -1,0 +1,12 @@
+base_url: http://127.0.0.1:11434
+model: qwen3:4b
+lightweight_model: qwen3:1.7b
+context_size: 4096
+temperature: 0
+timeout_seconds: 300
+num_parallel: 1
+keep_alive: 24h
+max_loaded_models: 1
+max_calls_per_scan: 2
+review_cache_minutes: 30
+

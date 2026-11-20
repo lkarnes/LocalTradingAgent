@@ -1,0 +1,15 @@
+[Unit]
+Description=Local AI Trading Agent Dashboard
+After=network-online.target
+
+[Service]
+Type=simple
+User=%u
+Group=%u
+WorkingDirectory=/home/%u/LocalTradingAgent
+EnvironmentFile=-/home/%u/LocalTradingAgent/.env
+ExecStart=/home/%u/LocalTradingAgent/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

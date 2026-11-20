@@ -1,0 +1,19 @@
+[Unit]
+Description=Local AI Trading Agent Scheduler
+After=network-online.target ollama.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=%u
+Group=%u
+WorkingDirectory=/home/%u/LocalTradingAgent
+EnvironmentFile=-/home/%u/LocalTradingAgent/.env
+ExecStart=/home/%u/LocalTradingAgent/.venv/bin/python -m app.scheduler_owner
+Restart=always
+RestartSec=10
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,38 @@
+timezone: America/Los_Angeles
+news:
+  enabled: true
+  interval_minutes: 15
+  lookback_hours: 48
+  fetch_weekends: false
+market_data:
+  interval_minutes: 15
+analysis:
+  enabled: true
+  interval_minutes: 60
+  analyze_positions: true
+  analyze_watchlist: true
+  analyze_only_when_market_open: true
+trading:
+  enabled: true
+  evaluation_interval_minutes: 60
+  allow_orders_during_market_hours_only: true
+  market_open_delay_minutes: 5
+  stop_new_entries_minutes_before_close: 15
+  require_manual_approval: true
+intraday:
+  enabled: true
+  scans:
+    - "08:15"
+    - "08:45"
+    - "10:00"
+    - "11:15"
+    - "12:30"
+    - "13:45"
+    - "15:00"
+    - "15:30"
+    - "15:45"
+maintenance:
+  daily_report_time: "16:15"
+  database_backup_time: "02:00"
+  storage_prune_time: "03:00"
+

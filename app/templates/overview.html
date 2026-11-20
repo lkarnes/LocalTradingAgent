@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local Trading Agent</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; background: #101419; color: #e7edf3; }
+    header { padding: 1rem 2rem; border-bottom: 1px solid #30363d; }
+    main { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; padding: 2rem; }
+    .card { border: 1px solid #30363d; border-radius: 8px; padding: 1rem; background: #161b22; }
+    .danger { color: #ff7b72; }
+  </style>
+</head>
+<body>
+<header><h1>Local Trading Agent</h1></header>
+<main>
+  <section class="card"><h2>Operating mode</h2><p>{{ app.operating_mode }}</p></section>
+  <section class="card"><h2>Paper trading</h2><p>{{ "Enabled" if app.paper_trading else "Disabled" }}</p></section>
+  <section class="card"><h2>Portfolio value</h2><p>${{ "%.2f"|format(portfolio_value) }}</p></section>
+  <section class="card"><h2>Cash</h2><p>${{ "%.2f"|format(paper.cash) }}</p></section>
+  <section class="card"><h2>Risk profile</h2><p>{{ env.risk_profile }}</p></section>
+  <section class="card"><h2>Emergency control</h2><button hx-post="/kill-switch" hx-vals='{"enabled":true}' hx-swap="none">Activate kill switch</button></section>
+</main>
+<script src="https://unpkg.com/htmx.org@2.0.4"></script>
+</body>
+</html>

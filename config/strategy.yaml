@@ -1,0 +1,10 @@
+intraday_enabled: true
+premarket_enabled: true
+stop_loss_percent: 8
+catalyst_freshness_hours: 48
+minimum_reward_risk_ratio: 1.5
+max_positions_reviewed_per_scan: 5
+max_entries_per_scan: 1
+max_exits_per_scan: 3
+cooldown_minutes_after_close: 120
+require_manual_approval: true
